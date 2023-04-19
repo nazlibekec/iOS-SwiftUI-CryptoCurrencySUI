@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct CyrptoCurrency : Hashable, Decodable, Identifiable {
+struct CryptoCurrency : Hashable, Decodable, Identifiable {
     
     let id = UUID()
     let currency : String

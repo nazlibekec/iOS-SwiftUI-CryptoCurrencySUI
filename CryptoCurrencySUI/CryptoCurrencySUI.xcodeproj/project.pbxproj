@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		7B03D99529EFF260006B077B /* CryptoCurrency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B03D99429EFF260006B077B /* CryptoCurrency.swift */; };
+		7B03D99729EFF4A3006B077B /* Webservice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B03D99629EFF4A3006B077B /* Webservice.swift */; };
+		7B03D99A29EFF530006B077B /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 7B03D99929EFF530006B077B /* Alamofire */; };
+		7B03D99C29EFFB97006B077B /* CryptoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B03D99B29EFFB97006B077B /* CryptoViewModel.swift */; };
 		7BFD3EEA29EFF03D0070EEA7 /* CryptoCurrencySUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BFD3EE929EFF03D0070EEA7 /* CryptoCurrencySUIApp.swift */; };
 		7BFD3EEC29EFF03D0070EEA7 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BFD3EEB29EFF03D0070EEA7 /* MainView.swift */; };
 		7BFD3EEE29EFF03E0070EEA7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7BFD3EED29EFF03E0070EEA7 /* Assets.xcassets */; };
@@ -16,6 +19,8 @@
 
 /* Begin PBXFileReference section */
 		7B03D99429EFF260006B077B /* CryptoCurrency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoCurrency.swift; sourceTree = "<group>"; };
+		7B03D99629EFF4A3006B077B /* Webservice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Webservice.swift; sourceTree = "<group>"; };
+		7B03D99B29EFFB97006B077B /* CryptoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoViewModel.swift; sourceTree = "<group>"; };
 		7BFD3EE629EFF03D0070EEA7 /* CryptoCurrencySUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CryptoCurrencySUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BFD3EE929EFF03D0070EEA7 /* CryptoCurrencySUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoCurrencySUIApp.swift; sourceTree = "<group>"; };
 		7BFD3EEB29EFF03D0070EEA7 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -28,6 +33,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B03D99A29EFF530006B077B /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -53,6 +59,7 @@
 		7B03D99229EFF1E6006B077B /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				7B03D99B29EFFB97006B077B /* CryptoViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -60,6 +67,7 @@
 		7B03D99329EFF1F1006B077B /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				7B03D99629EFF4A3006B077B /* Webservice.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -118,6 +126,9 @@
 			dependencies = (
 			);
 			name = CryptoCurrencySUI;
+			packageProductDependencies = (
+				7B03D99929EFF530006B077B /* Alamofire */,
+			);
 			productName = CryptoCurrencySUI;
 			productReference = 7BFD3EE629EFF03D0070EEA7 /* CryptoCurrencySUI.app */;
 			productType = "com.apple.product-type.application";
@@ -146,6 +157,9 @@
 				Base,
 			);
 			mainGroup = 7BFD3EDD29EFF03D0070EEA7;
+			packageReferences = (
+				7B03D99829EFF530006B077B /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = 7BFD3EE729EFF03D0070EEA7 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -174,7 +188,9 @@
 			files = (
 				7BFD3EEC29EFF03D0070EEA7 /* MainView.swift in Sources */,
 				7B03D99529EFF260006B077B /* CryptoCurrency.swift in Sources */,
+				7B03D99729EFF4A3006B077B /* Webservice.swift in Sources */,
 				7BFD3EEA29EFF03D0070EEA7 /* CryptoCurrencySUIApp.swift in Sources */,
+				7B03D99C29EFFB97006B077B /* CryptoViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -375,6 +391,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		7B03D99829EFF530006B077B /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		7B03D99929EFF530006B077B /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7B03D99829EFF530006B077B /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 7BFD3EDE29EFF03D0070EEA7 /* Project object */;
 }
