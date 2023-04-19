@@ -18,7 +18,6 @@ struct MainView: View {
     var body: some View {
    
         NavigationView {
-            
             List(cryptoListViewModel.cryptoList, id:\.id) { crypto in
                 VStack{
                     Text(crypto.curreny)
@@ -28,11 +27,10 @@ struct MainView: View {
                     Text(crypto.price)
                         .foregroundColor(.green)
                         .frame(maxWidth:.infinity,alignment: .leading)
-                    
                 }
             }.navigationTitle(Text("Crypto Currency"))
         }.onAppear {
-            //bu görünüm oluşturulduğunda bunu yap.
+            // Bu görünüm oluşturulduğunda veriler indirilir
             cryptoListViewModel.downloadCryptos(url: URL(string: "https://raw.githubusercontent.com/atilsamancioglu/K21-JSONDataSet/master/crypto.json")! )
         }
     }

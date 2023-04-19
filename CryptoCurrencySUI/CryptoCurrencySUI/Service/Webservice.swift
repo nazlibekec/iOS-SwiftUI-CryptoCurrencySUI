@@ -14,19 +14,24 @@ class CryptoDataService {
         AF.request(url).validate().responseDecodable(of: [CryptoCurrency].self) { response in
             switch response.result {
             case .success(let currencies):
+                // Başarılıysa, tamamlama işlevine [CryptoCurrency] dizisini ve .success durumunu geçiyoruz
                 completion(.success(currencies))
             case .failure(let error):
                 switch error {
                 case .invalidURL:
+                    // URL geçersizse, tamamlama işlevine .badURL durumuna geç
                     completion(.failure(.badURL))
                 case .responseValidationFailed(let reason):
                     switch reason {
                     case .dataFileNil, .dataFileReadFailed:
+                        // Yanıtta veri yoksa veya veri okunamıyorsa, tamamlama işlevine .noData durumuna geç
                         completion(.failure(.noData))
                     default:
+                        // Ayrıştırma hatası veya diğer hatalar durumunda, tamamlama işlevine .dataParseError durumuna geç
                         completion(.failure(.dataParseError))
                     }
                 default:
+                    // Diğer hatalar durumunda, tamamlama işlevine .noData durumuna geç
                     completion(.failure(.noData))
                 }
             }

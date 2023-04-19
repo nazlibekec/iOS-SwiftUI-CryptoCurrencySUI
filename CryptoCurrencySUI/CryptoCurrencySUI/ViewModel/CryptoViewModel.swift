@@ -10,10 +10,12 @@ import Combine
 
 class CryptoListViewModel : ObservableObject {
     
-    //gözlemlenebilir bi obje olabilmesi için published deriz. Liste değiştiğinde view kendini yenileyecek.
+    // @Published değişkeni, liste öğelerinde değişiklik olduğunda otomatik olarak görünümün yeniden yüklenmesini tetikler.
     @Published var cryptoList = [CryptoViewModel]()
     
     let webservice = CryptoDataService()
+    
+    // URL parametresi alır ve bu URL'den kripto para birimleri verilerini indirir.
     func downloadCryptos(url : URL ) {
         webservice.downloadCurrencies(url: url) { result in
             switch result {
@@ -22,8 +24,9 @@ class CryptoListViewModel : ObservableObject {
                 
             case.success(let cryptos):
                 if let cryptos = cryptos {
-                    //cryptolist kullanıcı arayüzünü etkileyeceği için;
+                    // Veriler kullanıcı arayüzünü etkileyeceği için main thread'de yapılır
                     DispatchQueue.main.async {
+                        // Yeni CryptoViewModel öğeleri, mevcut cryptos öğeleri üzerinden oluşturulur ve cryptoList'e eklenir.
                         self.cryptoList = cryptos.map(CryptoViewModel.init)
                     }
                 }
